@@ -38,8 +38,8 @@ class _PaisesScreenState extends State<PaisesScreen> {
   }
 
   Future<void> fetchPaises() async {
-    final response = await http
-        .get(Uri.parse('http://127.0.0.1:5000/paises?order_by=$sortBy'));
+    final response = await http.get(Uri.parse(
+        'https://conta-backend.onrender.com:10000/paises?order_by=$sortBy'));
     if (response.statusCode == 200) {
       setState(() {
         paises = json.decode(response.body);
