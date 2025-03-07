@@ -39,7 +39,7 @@ class _PaisesScreenState extends State<PaisesScreen> {
 
   Future<void> fetchPaises() async {
     final response = await http.get(Uri.parse(
-        'https://conta-backend.onrender.com:10000/paises?order_by=$sortBy'));
+        'https://conta-backend.onrender.com/paises?order_by=$sortBy'));
     if (response.statusCode == 200) {
       setState(() {
         paises = json.decode(response.body);
@@ -273,7 +273,7 @@ class _PaisFormScreenState extends State<PaisFormScreen> {
       // Enviar datos al backend
       try {
         final response = await http.post(
-          Uri.parse('https://conta-backend.onrender.com:10000/paises'),
+          Uri.parse('https://conta-backend.onrender.com/paises'),
           headers: {'Content-Type': 'application/json'},
           body: jsonEncode(_formData),
         );
